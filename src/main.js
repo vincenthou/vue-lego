@@ -2,9 +2,14 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import Vuex from 'vuex'
+import VueDragula from 'vue-dragula'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-default/index.css'
 import App from './App'
 
 Vue.use(Vuex)
+Vue.use(VueDragula)
+Vue.use(ElementUI)
 
 /* eslint-disable no-new */
 new Vue({

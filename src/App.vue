@@ -31,4 +31,20 @@ export default {
   margin-top: 60px;
   display: flex;
 }
+
+.box-card {
+  flex: 1;
+}
+
+.box-card h1 {
+  margin: 0;
+}
+
+.el-card__header {
+  border-bottom: none;
+}
+
+.el-card__body {
+  padding: 0;
+}
 </style>

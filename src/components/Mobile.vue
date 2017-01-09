@@ -1,6 +1,7 @@
 <template>
   <section class="mobile">
     <section class="screen">
+      <section class="content"></section>
     </section>
   </section>
 </template>
@@ -17,37 +18,42 @@ export default {
 
 <style>
 .mobile {
-  flex: 1;
-  border-radius: 10px;
-  padding: 40px;
+  position: relative;
+  border-radius: 15px;
+  padding: 20px;
+  padding-top: 50px;
   padding-bottom: 80px;
-  border: 1px solid #ddd;
+  border: 2px solid #ccc;
+  margin: 0 20px;
 }
 
 .screen {
-  position: relative;
-  border: 1px solid #ddd;
+  overflow: auto;
+  border-radius: 5px;
+  border: 1px solid #ccc;
   width: 375px;
   height: 667px;
 }
 
 .screen:before {
-  position: absolute;
-  top: -30px;
   content: "";
-  width: 200px;
-  height: 10px;
+  position: absolute;
+  top: 25px;
+  width: 50px;
+  height: 5px;
+  background-color: #ccc;
+  margin-left: -25px;
   border-radius: 2px;
-  border: 1px solid #ddd;
 }
 
 .screen:after {
-  position: absolute;
-  bottom: -70px;
   content: "";
+  position: absolute;
+  bottom: 10px;
   width: 50px;
   height: 50px;
+  margin-left: -25px;
   border-radius: 50%;
-  border: 1px solid #ddd;
+  border: 4px solid #ccc;
 }
 </style>
