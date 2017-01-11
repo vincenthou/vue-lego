@@ -1,7 +1,13 @@
 <template>
   <section class="mobile">
     <section class="screen">
-      <section class="content"></section>
+      <section class="content">
+        <ul class="sections" v-dragula="sections" drake="first">
+          <li class="section" v-for="section in sections">
+            <h2>{{section.title}}</h2>
+          </li>
+        </ul>
+      </section>
     </section>
   </section>
 </template>
@@ -10,8 +16,18 @@
 export default {
   data () {
     return {
-      msg: 'mobile'
+      sections: [
+        {
+          title: 'test'
+        }
+      ]
     }
+  },
+  created () {
+    const service = this.$dragula.$service
+    service.eventBus.$on('drop', (args) => {
+      console.log(args.service)
+    })
   }
 }
 </script>
