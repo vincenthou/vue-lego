@@ -1,27 +1,32 @@
 # vue-lego
 
-> A Vue.js project
+> Generate static pages by dragging and editing component configuration.
+
+## Features
+
+* Components can be dragged and dropped to mobile frame visually
+* Component props can be fulled in to generate static page
+* All the operations support undoing and redoing
+* Generated static page can be previewed on mobile with qrcode
+* Support mutiple pages management
+* Pages can be exported with zip package
 
 ## Build Setup
 
 ``` bash
 # install dependencies
-npm install
+yarn install
 
 # serve with hot reload at localhost:8080
-npm run dev
+yarn run dev
 
 # build for production with minification
-npm run build
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
+yarn run build
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## TODO
+
+- [ ] Generate scaffold templates which can be fullfilled later on
+- [ ] Produce static pages based on a specific component framework
+- [ ] Component framework can be replable
+- [ ] Support page templates
