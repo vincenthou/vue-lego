@@ -5,11 +5,11 @@
     </div>
     <el-tabs v-model="activeTab" type="card" @tab-click="handleClick">
       <el-tab-pane label="容器" name="container">
-        <ul class="components" v-dragula="components" drake="first">
-          <li class="component" v-for="component in components">
+        <draggable class="components" :list="components" :options="{group:'component',pull:'clone',put:false}">
+          <div class="component" v-for="component in components">
             <h2>{{component.title}}</h2>
-          </li>
-        </ul>
+          </div>
+        </draggable>
       </el-tab-pane>
       <el-tab-pane label="组件" name="component">组件</el-tab-pane>
       <el-tab-pane label="控件" name="control">控件</el-tab-pane>
@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import draggable from 'vuedraggable'
+
 export default {
   data () {
     return {
@@ -63,8 +65,8 @@ export default {
       console.log(tab, event)
     }
   },
-  created () {
-
+  components: {
+    draggable
   }
 }
 </script>

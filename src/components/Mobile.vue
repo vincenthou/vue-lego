@@ -2,17 +2,18 @@
   <section class="mobile">
     <section class="screen">
       <section class="content">
-        <ul class="sections" v-dragula="sections" drake="first">
-          <li class="section" v-for="section in sections">
+        <draggable class="sections" :list="sections" :options="{group:'component'}">
+          <div class="section" v-for="section in sections">
             <h2>{{section.title}}</h2>
-          </li>
-        </ul>
+          </div>
+        </draggable>
       </section>
     </section>
   </section>
 </template>
 
 <script>
+import draggable from 'vuedraggable'
 export default {
   data () {
     return {
@@ -23,11 +24,8 @@ export default {
       ]
     }
   },
-  created () {
-    const service = this.$dragula.$service
-    service.eventBus.$on('drop', (args) => {
-      console.log(args.service)
-    })
+  components: {
+    draggable
   }
 }
 </script>
