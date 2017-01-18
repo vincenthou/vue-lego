@@ -1,14 +1,11 @@
 <template>
   <section class="mobile">
-    <section class="screen">
-      <section class="content">
-        <draggable class="sections" :list="sections" :options="{group:'component'}">
-          <div class="section" v-for="section in sections">
-            <h2>{{section.title}}</h2>
-          </div>
-        </draggable>
-      </section>
-    </section>
+    <draggable class="screen" :list="sections" :options="{group:'component'}">
+      <div class="section" v-for="section in sections">
+        <h2>{{section.title}}</h2>
+        <mt-range></mt-range>
+      </div>
+    </draggable>
   </section>
 </template>
 
@@ -17,6 +14,7 @@ import draggable from 'vuedraggable'
 export default {
   data () {
     return {
+      rangeValue: 10,
       sections: [
         {
           title: 'test'

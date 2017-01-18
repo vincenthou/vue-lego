@@ -5,7 +5,7 @@
     </div>
     <el-tabs v-model="activeTab" type="card" @tab-click="handleClick">
       <el-tab-pane label="容器" name="container">
-        <draggable class="components" :list="components" :options="{group:'component',pull:'clone',put:false}">
+        <draggable class="components" :list="components" :options="{group:{name:'component',pull:'clone',put:false}}">
           <div class="component" v-for="component in components">
             <h2>{{component.title}}</h2>
           </div>
