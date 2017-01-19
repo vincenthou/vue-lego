@@ -5,7 +5,7 @@
     </div>
     <el-tabs v-model="activeTab" type="card" @tab-click="handleClick">
       <el-tab-pane label="容器" name="container">
-        <draggable class="components" :list="components" :options="{group:{name:'component',pull:'clone',put:false}}">
+        <draggable class="components" :list="components" :options="{group:{name:'component',pull:'clone',put:false},sort:false}">
           <div class="component" v-for="component in components">
             <h2>{{component.title}}</h2>
           </div>
@@ -26,36 +26,25 @@ export default {
       activeTab: 'container',
       components: [
         {
-          name: 'icon',
-          title: 'cpt'
+          name: 'mt-range',
+          title: 'range',
+          props: {
+            value: 10
+          }
         },
         {
-          name: 'icon',
-          title: 'cpt'
+          name: 'mt-swipe',
+          title: 'swipe',
+          props: {
+          }
         },
         {
-          name: 'icon',
-          title: 'cpt'
-        },
-        {
-          name: 'icon',
-          title: 'cpt'
-        },
-        {
-          name: 'icon',
-          title: 'cpt'
-        },
-        {
-          name: 'icon',
-          title: 'cpt'
-        },
-        {
-          name: 'icon',
-          title: 'cpt'
-        },
-        {
-          name: 'icon',
-          title: 'cpt'
+          name: 'mt-radio',
+          title: 'radio',
+          props: {
+            value: '选项B',
+            options: ['选项A', '选项B', '选项C']
+          }
         }
       ]
     }

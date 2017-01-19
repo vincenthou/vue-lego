@@ -2,8 +2,7 @@
   <section class="mobile">
     <draggable class="screen" :list="sections" :options="{group:'component'}">
       <div class="section" v-for="section in sections">
-        <h2>{{section.title}}</h2>
-        <mt-range></mt-range>
+        <component-proxy :name="section.name" :props="section.props"></component-proxy>
       </div>
     </draggable>
   </section>
@@ -14,12 +13,7 @@ import draggable from 'vuedraggable'
 export default {
   data () {
     return {
-      rangeValue: 10,
-      sections: [
-        {
-          title: 'test'
-        }
-      ]
+      sections: []
     }
   },
   components: {
