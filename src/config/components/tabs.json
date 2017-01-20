@@ -1,0 +1,14 @@
+[
+  {
+    "label": "容器",
+    "name": "container"
+  },
+  {
+    "label": "组件",
+    "name": "component"
+  },
+  {
+    "label": "控件",
+    "name": "control"
+  }
+]

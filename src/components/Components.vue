@@ -4,49 +4,31 @@
       <h1>组件库</h1>
     </div>
     <el-tabs v-model="activeTab" type="card" @tab-click="handleClick">
-      <el-tab-pane label="容器" name="container">
-        <draggable class="components" :list="components" :options="{group:{name:'component',pull:'clone',put:false},sort:false}">
-          <div class="component" v-for="component in components">
+      <el-tab-pane v-for="tab in tabs" :label="tab.label" :name="tab.name">
+        <draggable class="components" :list="tab.components" :options="{group:{name:'component',pull:'clone',put:false},sort:false}">
+          <div class="component" v-for="component in tab.components">
             <h2>{{component.title}}</h2>
           </div>
         </draggable>
       </el-tab-pane>
-      <el-tab-pane label="组件" name="component">组件</el-tab-pane>
-      <el-tab-pane label="控件" name="control">控件</el-tab-pane>
     </el-tabs>
   </el-card>
 </template>
 
 <script>
+import tabs from '../config/components/tabs.json'
 import draggable from 'vuedraggable'
+
+tabs.forEach(tab => {
+  let components = require(`../config/components/${tab.name}.json`)
+  tab.components = components
+})
 
 export default {
   data () {
     return {
       activeTab: 'container',
-      components: [
-        {
-          name: 'mt-range',
-          title: 'range',
-          props: {
-            value: 10
-          }
-        },
-        {
-          name: 'mt-swipe',
-          title: 'swipe',
-          props: {
-          }
-        },
-        {
-          name: 'mt-radio',
-          title: 'radio',
-          props: {
-            value: '选项B',
-            options: ['选项A', '选项B', '选项C']
-          }
-        }
-      ]
+      tabs: tabs
     }
   },
   methods: {

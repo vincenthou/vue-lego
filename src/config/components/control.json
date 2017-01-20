@@ -1,0 +1,23 @@
+[
+  {
+    "name": "mt-range",
+    "title": "range",
+    "props": {
+      "value": 10
+    }
+  },
+  {
+    "name": "mt-swipe",
+    "title": "swipe",
+    "props": {
+    }
+  },
+  {
+    "name": "mt-radio",
+    "title": "radio",
+    "props": {
+      "value": "选项B",
+      "options": ["选项A", "选项B", "选项C"]
+    }
+  }
+]
