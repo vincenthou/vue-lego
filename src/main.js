@@ -14,30 +14,6 @@ import 'mint-ui/lib/style.css'
 import Mint from 'mint-ui'
 Vue.use(Mint)
 
-Vue.component('component-proxy', {
-  props: {
-    name: {
-      type: String,
-      required: true
-    },
-    props: {
-      type: Object,
-      required: true
-    }
-  },
-  render (createElem) {
-    var self = this
-    return createElem(this.name, {
-      props: this.props,
-      on: {
-        change (value) {
-          self.value = value
-        }
-      }
-    })
-  }
-})
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

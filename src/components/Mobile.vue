@@ -10,6 +10,8 @@
 
 <script>
 import draggable from 'vuedraggable'
+import ComponentProxy from 'src/factory/component-proxy'
+
 export default {
   data () {
     return {
@@ -17,7 +19,8 @@ export default {
     }
   },
   components: {
-    draggable
+    draggable,
+    ComponentProxy
   }
 }
 </script>
