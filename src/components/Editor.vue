@@ -12,11 +12,18 @@ import DynamicForm from 'src/factory/form-builder'
 
 export default {
   data () {
-    return {
-      form: {
-        name: 'test',
-        props: {}
+    return {}
+  },
+  computed: {
+    form () {
+      let formObj = {name: '', props: {}}
+      let currentComponent = this.$store.state.currentComponent
+      // TODO: change the component data structure
+      if (currentComponent) {
+        formObj.name = currentComponent.name
+        formObj.props = currentComponent.props
       }
+      return formObj
     }
   },
   methods: {

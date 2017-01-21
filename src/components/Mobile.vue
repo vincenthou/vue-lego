@@ -1,6 +1,9 @@
 <template>
   <section class="mobile">
-    <draggable class="screen" :list="sections" :options="{group:'component'}">
+    <draggable class="screen"
+      :list="sections"
+      :options="{group:'component'}"
+      @change="onComponentsChanged">
       <div class="section" v-for="section in sections">
         <component-proxy :name="section.name" :props="section.props"></component-proxy>
       </div>
@@ -9,6 +12,7 @@
 </template>
 
 <script>
+import {SET_CUR_COMPONENT} from 'src/constants/mutations'
 import draggable from 'vuedraggable'
 import ComponentProxy from 'src/factory/component-proxy'
 
@@ -16,6 +20,23 @@ export default {
   data () {
     return {
       sections: []
+    }
+  },
+  methods: {
+    onComponentsChanged (e) {
+      if (e.added) {
+        this.$store.commit(SET_CUR_COMPONENT, e.added.element)
+        console.log(e.added.newIndex)
+      }
+      if (e.moved) {
+        this.$store.commit(SET_CUR_COMPONENT, e.moved.element)
+        console.log(e.moved.oldIndex)
+        console.log(e.moved.newIndex)
+      }
+      if (e.removed) {
+        this.$store.commit(SET_CUR_COMPONENT, null)
+        console.log(e.removed.oldIndex)
+      }
     }
   },
   components: {

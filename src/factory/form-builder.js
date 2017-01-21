@@ -9,11 +9,12 @@ export default {
       required: true
     }
   },
-  render (createElem) {
-    // let self = this
-    return createElem('el-form', {
+  render (createElement) {
+    return createElement('el-form', {
       props: this.props
-    })
+    }, [
+      createElement('p', {}, this.name)
+    ])
   }
 }
 
