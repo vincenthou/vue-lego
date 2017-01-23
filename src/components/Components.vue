@@ -54,15 +54,8 @@ export default {
   width: 25%;
   height: 100px;
   background-color: #ccc;
-  cursor: pointer;
+  cursor: move;
   border: 1px solid #fff;
-}
-
-.gu-mirror {
-  padding: 10px;
-  cursor: grabbing;
-  background-color: rgba(0, 0, 0, 0.2);
-  transition: opacity 0.4s ease-in-out;
 }
 </style>
 

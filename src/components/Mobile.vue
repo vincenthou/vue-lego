@@ -6,6 +6,7 @@
       @change="onComponentsChanged">
       <div class="section" v-for="section in sections">
         <component-proxy :name="section.name" :props="section.props"></component-proxy>
+        <div class="section-mask" @click="onComponentSelected(section)"></div>
       </div>
     </draggable>
   </section>
@@ -37,6 +38,9 @@ export default {
         this.$store.commit(SET_CUR_COMPONENT, null)
         console.log(e.removed.oldIndex)
       }
+    },
+    onComponentSelected (element) {
+      this.$store.commit(SET_CUR_COMPONENT, element)
     }
   },
   components: {
@@ -85,5 +89,26 @@ export default {
   margin-left: -25px;
   border-radius: 50%;
   border: 4px solid #ccc;
+}
+
+.section {
+  position: relative;
+  /* https://www.w3.org/TR/CSS2/box.html#collapsing-margins
+  */
+  /* Prevent child and parent margin collapse*/
+  overflow: hidden;
+}
+
+.section:hover {
+  border: 1px dotted #26a2ff;
+  cursor: move;
+}
+
+.section-mask {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 </style>
