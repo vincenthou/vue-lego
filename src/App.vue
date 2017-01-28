@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import Components from 'components/Components'
-import Mobile from 'components/Mobile'
-import Editor from 'components/Editor'
+import Components from 'components/components'
+import Mobile from 'components/mobile'
+import Editor from 'components/editor'
 
 export default {
   name: 'app',

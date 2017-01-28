@@ -1,20 +1,25 @@
+import FormRadio from 'src/form/radio'
+
 export default {
   props: {
     name: {
       type: String,
       required: true
     },
-    props: {
+    data: {
       type: Object,
       required: true
     }
   },
   render (createElement) {
-    return createElement('el-form', {
-      props: this.props
-    }, [
-      createElement('p', {}, this.name)
-    ])
+    let name = this.name.replace('mt-', '')
+    if (!name) return
+    return createElement('form-' + name, {
+      data: this.data
+    })
+  },
+  components: {
+    FormRadio
   }
 }
 

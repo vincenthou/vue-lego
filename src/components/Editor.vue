@@ -3,11 +3,16 @@
     <div slot="header">
       <h1>编辑器</h1>
     </div>
-    <dynamic-form :name="form.name" :props="form.props"></dynamic-form>
+    <dynamic-form
+      :name="form.name"
+      :data="{form:form.props}"
+      @change="onPropsChanged">
+    </dynamic-form>
   </el-card>
 </template>
 
 <script>
+// import {SET_COMPONENT_PROPS} from 'src/constants/mutations'
 import DynamicForm from 'src/factory/form-builder'
 
 export default {
@@ -29,6 +34,9 @@ export default {
   methods: {
     onSubmit () {
       console.log('submit!')
+    },
+    onPropsChanged () {
+      console.log(arguments)
     }
   },
   components: {
@@ -38,4 +46,13 @@ export default {
 </script>
 
 <style>
+.el-form {
+  margin: 20px;
+}
+.el-form-item__label {
+  width: 40px;
+}
+.el-form-item__content {
+  margin-left: 40px;
+}
 </style>

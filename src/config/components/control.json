@@ -16,8 +16,18 @@
     "name": "mt-radio",
     "title": "radio",
     "props": {
+      "align": "left",
+      "title": "选项",
       "value": "选项B",
       "options": ["选项A", "选项B", "选项C"]
+    },
+    "form": {
+      "align": {
+        "type": "radio",
+        "value": ["left", "right"]
+      },
+      "title": "input",
+      "options": ""
     }
   }
 ]
